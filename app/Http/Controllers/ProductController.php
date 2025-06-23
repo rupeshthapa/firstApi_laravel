@@ -39,7 +39,6 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
 
-       
 
         $validator = Validator::make($request->all(), [
             'name' => 'sometimes|required|string',
@@ -52,6 +51,7 @@ class ProductController extends Controller
         }
 
         $product->update($validator->validated());
+
         return response()->json($product);
     }
 
