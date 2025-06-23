@@ -21,9 +21,10 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->append ([
             //
         ]);
-;
+// ;
 
         $middleware->api([
+            SubstituteBindings::class,
             EnsureFrontendRequestsAreStateful::class,
         ]);
 

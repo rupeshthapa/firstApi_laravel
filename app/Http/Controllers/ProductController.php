@@ -38,6 +38,9 @@ class ProductController extends Controller
 
     public function update(Request $request, Product $product)
     {
+
+       
+
         $validator = Validator::make($request->all(), [
             'name' => 'sometimes|required|string',
             'description' => 'sometimes|required|string',
