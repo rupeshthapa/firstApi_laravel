@@ -1,15 +1,21 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 
+
+    Route::post('/register', [AuthController::class, 'register']);
+    Route::post('/login', [AuthController::class, 'login']);
+
+
 // Public API routes (no auth)
-Route::apiResource('products', ProductController::class);
+// Route::apiResource('products', ProductController::class);
 
 // Or if you want to protect with Sanctum:
-// Route::middleware('auth:sanctum')->group(function () {
-//     Route::apiResource('products', ProductController::class);
-// });
+Route::middleware('auth:sanctum')->group(function () {
+    Route::apiResource('products', ProductController::class);
+});
 
 // Keep /user if you want
 Route::get('/user', function (Request $request) {

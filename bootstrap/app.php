@@ -19,17 +19,21 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->append ([
-
+            //
         ]);
+;
 
         $middleware->api([
-            
+            EnsureFrontendRequestsAreStateful::class,
         ]);
+
         $middleware->web([
             StartSession::class,
             ValidateCsrfToken::class,
             ShareErrorsFromSession::class,
             SubstituteBindings::class, 
+
+            
         ]);
 
     })
